@@ -1,8 +1,8 @@
-# swf
-
-swf flash bytecode
+# index compiled in freebasic
 
 
 
-https://www.adobe.com/devnet/swf.html
+
+
+
 
