@@ -13,6 +13,7 @@
 	declare function findstate()as integer
 	declare function addfor(addresss as integer,forvars as integer,forfroms as integer,forintos as integer,forsteps as integer)as integer
 	declare sub clearbody()
+	dim shared llline as integer
 	dim shared ts as integer
 	dim shared sss as string
 	dim shared s as string
@@ -82,10 +83,13 @@ main
     Sub main()
 		open command$ for input as #4
 		ts=0
+		llline=0
 		startcode()
 		clearbody()
 			while(not eof(4))
 			line input #4,ss
+				ss=trim(ss)
+				llline=llline+1
 				split
 				
 				errorss=1
@@ -2880,6 +2884,7 @@ main
 						errorssi=69
 
 						if par(69)=length then
+						
 							tc=ucase(trim(separete(1)))
 							if findvar(tc)=-1 and tc<>"" then 
 								addvar(tc,6,iii)
@@ -3457,7 +3462,7 @@ main
 
 	errorhandler:
 	escapehandler:
-	print "error:"
+	print "error line :";llline
 	gotoexit:
     End Sub
 
@@ -4475,8 +4480,19 @@ end sub
 
 sub split()
 	dim hl as integer
+	dim bss as string
 	hl=1
+	while hl <> 0
+		hl=instr(ss,"	")
+		if hl>0 then 
+		bss=""
+		if hl > 1 then bss=mid(ss,1,hl-1)
+		if hl<len(ss)then bss=mid(ss,hl+1)
+		ss=bss
+		end if
+	wend
 	length=0
+	hl=1	
 	while hl <> 0
 		hl=instr(ss,",")
 		if hl=-1 then
