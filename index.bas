@@ -88,13 +88,16 @@ main
 		clearbody()
 			while(not eof(4))
 			line input #4,ss
+			addtail("; "+ss)
+			addbody("; "+ss)
+			debug=ss
 				ss=trim(ss)
 				llline=llline+1
 				split
 				
 				errorss=1
 
-				if length>0 then 
+				if length>-1 then 
 					par1=lcase(trim(separete(0)))
 
 'key print,var
@@ -3438,6 +3441,7 @@ main
 ' next out of for
 				if forcount<>0 then 
 					errorssi=30	
+					print "error on next";iii
 					goto errorhandler
 				end if					
 
@@ -3448,6 +3452,7 @@ main
 		if bbb<>-1 then 
 			errorssi=11
 			iii=labeladdress(bbb)
+			print "error on label";iii
 			goto errorhandler
 		end if
 		close #4
@@ -3461,8 +3466,8 @@ main
 	goto gotoexit
 
 	errorhandler:
+	print "error on line "+str(iii)+" keyword :"+keywords(errorssi)+">>"+debug
 	escapehandler:
-	print "error line :";llline
 	gotoexit:
     End Sub
 
