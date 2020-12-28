@@ -1,5 +1,5 @@
     declare Sub main()
-	declare sub addkey(name as string,ppar as integer)
+	declare sub addkey(names as string,ppar as integer)
 	declare sub split()
 	declare sub startcode()
 	declare function findvar(names as string)as integer
@@ -23,7 +23,7 @@
 	dim shared ii as integer
 	dim shared i as integer
 	dim shared length as integer
-	dim shared separete(24) as string
+	dim shared separete(240) as string
 	dim shared keycount as  integer
 	dim shared varscount as integer
 	dim shared keywords(600) as string
