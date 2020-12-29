@@ -1,0 +1,128 @@
+	const,0
+	const,1
+	const,2
+	const,3
+	const,10
+	const,15
+	const,19
+	const,198
+	const,318
+	integer,a,0
+	integer,m,0
+	integer,n,0
+	integer,x,0
+	integer,y,0
+	integer,x1,1
+	integer,maxy,198
+	integer,maxx,318
+	integer,minx,19900
+	integer,miny,319
+	integer,divider,100
+	integer,white,15
+	integer,blue,1
+	screen,19
+	back,white
+	div,minx,minx,miny
+	let,miny,0
+	for,m,0,198,10
+		move,y,m
+		let,x,0
+		mul,miny,m,divider
+		for,n,0,1,0
+			big,y,maxy,exitdo
+			big,x,maxx,exitdo
+			add,x1,x,1
+			hline,x,y,x1,blue
+			add,x,x,1
+			add,miny,minx,miny
+			div,y,miny,divider
+		next
+
+:,exitdo
+	next
+
+	for,m,15,318,15
+		let,y,0
+		move,x,m
+		let,miny,0
+		for,n,0,1,0
+			big,y,maxy,exitdo1
+			big,x,maxx,exitdo1
+			add,x1,x,1
+			hline,x,y,x1,blue
+			add,x,x,1
+			add,miny,minx,miny
+			div,y,miny,divider
+		next
+
+:,exitdo1
+	next
+
+	for,m,10,198,10
+		let,y,m
+		let,x,0
+		mul,miny,m,divider
+		for,n,0,1,0
+			big,x,maxx,exitdo2
+			add,x1,x,1
+			hline,x,y,x1,blue
+			add,x,x,1
+			sub,miny,miny,minx
+			div,y,miny,divider
+		next
+:,exitdo2
+	next
+
+	for,m,0,318,15
+		let,y,199
+		move,x,m
+		mul,miny,y,divider
+		for,n,0,1,0
+			big,x,maxx,exitdo3
+			add,x1,x,1
+			hline,x,y,x1,blue
+			add,x,x,1
+			sub,miny,miny,minx
+			div,y,miny,divider
+		next
+:,exitdo3
+	next
+
+
+
+	doevents
+	wait,a
+
+:,exits
+	screen,3
+	exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
