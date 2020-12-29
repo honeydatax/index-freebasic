@@ -188,8 +188,9 @@ main
 								if varstype(bbb)<10 then	 
 
 
-									addtail("	mov bx,L"+(trim(str(line11(bbb)+9000))))
 									addtail("	call waits")
+									addtail("	mov bx,L"+(trim(str(line11(bbb)+9000))))
+									addtail("	mov [bx],ax")
 							errorssi=-1
 							errorss=0
 
