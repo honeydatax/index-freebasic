@@ -88,11 +88,12 @@ main
 		clearbody()
 			while(not eof(4))
 			line input #4,ss
+			ss=trim(ss)
 			addtail("; "+ss)
 			addbody("; "+ss)
 			debug=ss
-				ss=trim(ss)
 				llline=llline+1
+				length=1
 				split
 				
 				errorss=1
@@ -147,9 +148,9 @@ main
 						goto allkey
 					end if
 'key no line
-					if par1=keywords(2) then 
+					if par1=keywords(2) or par1="	" or par1="		" then 
 						errorssi=2
-						if par(2)=length then
+						if length=1 then
 							errorssi=-1
 							errorss=0
 						end if
@@ -412,6 +413,7 @@ main
 
 						if par(10)=length then
 							tc=ucase(trim(separete(1)))
+									
 							bbb=findlabel(tc)
 							if bbb=-1 and tc<>"" and (asc(tc)>(asc("A")-1)) and (asc(tc)<(asc("Z")+1)) then 
 								addlabel(tc,1,iii,1)
@@ -421,7 +423,8 @@ main
 
 							else
 
-								if bbb>-1 and tc<>"" and (asc(tc)>(asc("A")-1)) and (asc(tc)<(asc("Z")+1)) and labeldefined(bbb)=0 then 
+								if bbb>-1 and tc<>"" and (asc(tc)>(asc("A")-1)) and (asc(tc)<(asc("Z")+1)) and labelstate(bbb)=0 then 
+									
 									labeldefined(bbb)=1
 									addtail("LL"+trim(str(labeladdress(bbb)+8000))+":")
 									labelstate(bbb)=1
@@ -3453,7 +3456,7 @@ main
 		if bbb<>-1 then 
 			errorssi=11
 			iii=labeladdress(bbb)
-			print "error on label";iii
+			print "error on label";iii;">>";labelss(bbb)
 			goto errorhandler
 		end if
 		close #4
@@ -4487,16 +4490,26 @@ end sub
 sub split()
 	dim hl as integer
 	dim bss as string
+	dim varc as integer
+	dim varcc as integer
+	dim varclen as integer
 	hl=1
-	while hl <> 0
-		hl=instr(ss,"	")
-		if hl>0 then 
-		bss=""
-		if hl > 1 then bss=mid(ss,1,hl-1)
-		if hl<len(ss)then bss=mid(ss,hl+1)
-		ss=bss
-		end if
-	wend
+	varcc=1
+	varclen=len(ss)
+	for varc=1 to varclen
+		if(asc(mid(ss,varc,1))>32) then
+			ss=mid(ss,varc,varclen-varc+1)
+			varc=varclen+2
+		end if 
+	next varc
+
+	varclen=len(ss)
+	for varc=0 to varclen
+		if(asc(mid(ss,varclen-varc,1))>32) then
+			ss=mid(ss,1,varclen-varc)
+			varc=varclen+2
+		end if 
+	next varc
 	length=0
 	hl=1	
 	while hl <> 0
@@ -4512,4 +4525,3 @@ sub split()
 			
 	wend
 end sub
-
