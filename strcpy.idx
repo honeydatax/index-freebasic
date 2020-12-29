@@ -1,0 +1,9 @@
+                rem,define vars
+        string,var3,50
+        set,var1,HELLO $
+        set,var2,WORLD! $
+                rem,fill mem
+        strcat,var3,var1
+        strcat,var3,var2
+        print,var3
+

@@ -1,0 +1,8 @@
+                rem,define vars
+        integer,var1,65
+        integer,var2,5
+        set,var3,................................
+                rem,fill mem
+        memfill,var3,var1,var2
+        print,var3
+
