@@ -1,0 +1,9 @@
+	string,s,50
+	string,ss,50
+	let,ss,HELLO WORLD.
+	let,s,hello world
+	echo,beford
+	print,s
+	move,s,ss
+	echo,afther
+	print,s
