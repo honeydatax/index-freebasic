@@ -14,4 +14,6 @@ Came to join to build you version of retro
 Index
 
 
-
+Help on 
+https://webchat.freenode.net/
+#retroindex
