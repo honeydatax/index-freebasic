@@ -1,0 +1,9 @@
+                rem,define vars
+        string,s,50
+        integer,start,4
+        set,var3,----HELLO WORLD.............
+                rem,input
+        print,var3
+        strfrom,s,var3,start
+        print,s
+
