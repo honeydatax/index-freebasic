@@ -19,3 +19,5 @@ https://webchat.freenode.net/
 #retroindex
 
 Low level compiler 
+Can be used as a compiler of a complex pre-compiler
+Lib 16 bits than can work on freedos or in old version of windows
