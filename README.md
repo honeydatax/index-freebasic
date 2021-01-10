@@ -14,9 +14,9 @@ Came to join to build you version of retro
 Index
 
 
-Help on 
-https://webchat.freenode.net/
-#retroindex
+Help on
+ode.net/
+
 
 Low level compiler 
 Can be used as a compiler of a complex pre-compiler
